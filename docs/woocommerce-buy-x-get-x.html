@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy X Get X (BOGO) - YeeDiscounts Documentation</title>
+    <style>
+        :root {
+            --primary: #0073aa;
+            --text: #333;
+            --sidebar-bg: #f7f7f7;
+            --border: #eee;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Layout */
+        .docs-sidebar {
+            width: 280px;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            padding: 30px 20px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        .docs-content {
+            flex-grow: 1;
+            padding: 40px 60px;
+            max-width: 900px;
+        }
+
+        /* Navigation */
+        .docs-nav h3 {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            color: #777;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+            margin-top: 25px;
+        }
+
+        .docs-nav h3:first-child {
+            margin-top: 0;
+        }
+
+        .docs-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .docs-nav li {
+            margin-bottom: 5px;
+        }
+
+        .docs-nav a {
+            display: block;
+            padding: 8px 12px;
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.95em;
+            transition: background 0.2s;
+        }
+
+        .docs-nav a:hover {
+            background: #e0e0e0;
+        }
+
+        .docs-nav a.active {
+            background: var(--primary);
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Typography */
+        h1 {
+            color: #23282d;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: #23282d;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        h3 {
+            color: #23282d;
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+
+        code {
+            background: #f0f0f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.9em;
+            color: #d63638;
+        }
+
+        .note {
+            background: #fffbe5;
+            border-left: 4px solid #fbc02d;
+            padding: 15px;
+            margin: 25px 0;
+        }
+
+        .highlight {
+            background: #e3f2fd;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin: 25px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .docs-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 20px;
+            }
+
+            .docs-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="docs-sidebar">
+        <div class="docs-nav">
+            <h3>Getting Started</h3>
+            <ul>
+                <li><a href="index.html">Introduction</a></li>
+                <li><a href="installation.html">Installation</a></li>
+            </ul>
+
+            <h3>Discount Types</h3>
+            <ul>
+                <li><a href="woocommerce-simple-discount.html">Simple Discount</a></li>
+                <li><a href="woocommerce-bulk-discount.html">Bulk / Quantity Discount</a></li>
+                <li><a href="woocommerce-buy-x-get-x.html" class="active">Buy X Get X (BOGO)</a></li>
+                <li><a href="woocommerce-buy-2-get-1-50-off.html">Buy 2 Get 3rd 50% Off</a></li>
+                <li><a href="woocommerce-buy-x-get-y.html">Buy X Get Y</a></li>
+                <li><a href="woocommerce-set-discount.html">Set / Bundle Discount</a></li>
+                <li><a href="woocommerce-cart-discount.html">Cart Total Discount</a></li>
+            </ul>
+
+            <h3>Settings</h3>
+            <ul>
+                <li><a href="settings-general.html">General Settings</a></li>
+                <li><a href="settings-badges.html">Sale Badges & Display</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="docs-content">
+        <h1>How to Set Up WooCommerce Buy One Get One Free (Buy X Get X)</h1>
+
+        <p>Boost your store's average order value with compelling "Buy X Get X" offers. <strong>YeeDiscounts</strong>
+            makes it easy to create powerful BOGO promotions where customers get the <em>same</em> product as a reward
+            (e.g., Buy 1 T-Shirt, Get 1 T-Shirt Free).</p>
+
+        <h2>1. Creating a New Rule</h2>
+        <ol>
+            <li>Navigate to <strong>WooCommerce > Settings > Dynamic Discounts</strong>.</li>
+            <li>Click <strong>Add New Rule</strong>.</li>
+            <li>Enter a <strong>Rule Name</strong> (e.g., "T-Shirt BOGO Special").</li>
+            <li>(Optional) Set a unique <strong>Rule ID</strong> or let it generate automatically.</li>
+        </ol>
+
+        <h2>2. Configuring the Discount</h2>
+        <p>In the <strong>Discount Type</strong> section, select:</p>
+        <div class="highlight">
+            <strong>Discount Type:</strong> <code>Buy X Get X (Same Product)</code>
+        </div>
+        <p>This mode is designed for offers where the customer buys a specific quantity of a product and gets a reward
+            quantity of the <em>same</em> product.</p>
+
+        <h3>Setting Up Tiers (Ranges)</h3>
+        <p>The plugin uses a flexible "Tier" system to define your Buy/Get logic.</p>
+
+        <ol>
+            <li>Click <strong>Add Range</strong> to create your first tier.</li>
+            <li><strong>Min Qty</strong>: The number of items the customer must buy to trigger the deal (e.g.,
+                <code>1</code> for Buy 1 Get 1).
+            </li>
+            <li><strong>Discount Type</strong>:
+                <ul>
+                    <li><strong>Free</strong>: The reward item is 100% free.</li>
+                    <li><strong>Percentage</strong>: The reward item is discounted by a percentage (e.g., Buy 1, Get 2nd
+                        at 50% off).</li>
+                    <li><strong>Fixed Amount</strong>: The reward item is discounted by a fixed dollar amount.</li>
+                </ul>
+            </li>
+            <li><strong>Value</strong>:
+                <ul>
+                    <li>If configuring a <strong>Percentage</strong> or <strong>Fixed Amount</strong>, enter the value
+                        here (e.g., <code>50</code> for 50% off).</li>
+                    <li>If <strong>Free</strong>, this value is ignored (automatically 100%).</li>
+                </ul>
+            </li>
+            <li><strong>Recursive (Repeat)</strong>:
+                <ul>
+                    <li>Check this box if you want the rule to repeat for every multiple of the Min Qty.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2>3. Filtering Logic (Who gets the deal?)</h2>
+        <p>Use the <strong>Filter</strong> section to determine which products qualify for this BOGO offer.</p>
+        <ul>
+            <li><strong>Filter Type</strong>: Included/Excluded Products, Categories, or All Products.</li>
+        </ul>
+
+        <h2>4. Common Examples</h2>
+
+        <h3>Scenario A: Buy 1 T-Shirt with Logo, Get 1 Free</h3>
+        <ul>
+            <li><strong>Discount Type</strong>: Buy X Get X</li>
+            <li><strong>Filter</strong>: Select specific product "T-Shirt with Logo" (Filter Type: Products, Operator:
+                In list).</li>
+            <li><strong>Min Qty</strong>: <code>1</code></li>
+            <li><strong>Recursive</strong>: <code>Checked</code> (Yes)</li>
+            <li><strong>Tier Type</strong>: <code>Free</code></li>
+            <li><strong>Result</strong>: When a customer adds <strong>1</strong> "T-Shirt with Logo" to their cart, the
+                plugin automatically adds another <strong>1</strong> "T-Shirt with Logo" for free. They pay for 1, they
+                get 2.</li>
+        </ul>
+        <img src="https://add-ons.org/wp-content/uploads/2026/02/WooCommerce-set-up-buy-1-get-1-1024x697.png" alt=""
+            width="1024" height="697" class="aligncenter wp-image-7243 size-large" title="Setting Buy 1 get 1"
+            style="display: block; margin: 10px auto; max-width: 100%; height: auto;" />
+        <p style="text-align: center; color: #666; font-size: 0.9em;">Setting backend</p>
+        <img src="https://add-ons.org/wp-content/uploads/2026/02/Cart-buy-1-get-1-1024x464.png" alt="" width="1024"
+            height="464" class="size-large wp-image-7244 aligncenter"
+            style="display: block; margin: 10px auto; max-width: 100%; height: auto;" />
+        <p style="text-align: center; color: #666; font-size: 0.9em;">Cart page</p>
+
+
+
+        <div class="note">
+            <strong>Tip:</strong> Ensure your "Show on-sale badge" settings are configured to highlight these deals in
+            your shop!
+        </div>
+    </main>
+
+</body>
+
+</html>
