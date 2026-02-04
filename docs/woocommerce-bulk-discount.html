@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy 2 Get 3rd 50% Off - YeeDiscounts Documentation</title>
+    <title>Bulk Discounts (Tiered Pricing) - YeeDiscounts Documentation</title>
     <style>
         :root {
             --primary: #0073aa;
@@ -165,9 +165,9 @@
             <h3>Discount Types</h3>
             <ul>
                 <li><a href="woocommerce-simple-discount.html">Simple Discount</a></li>
-                <li><a href="woocommerce-bulk-discount.html">Bulk / Quantity Discount</a></li>
+                <li><a href="woocommerce-bulk-discount.html" class="active">Bulk / Quantity Discount</a></li>
                 <li><a href="woocommerce-buy-x-get-x.html">Buy X Get X (BOGO)</a></li>
-                <li><a href="woocommerce-buy-2-get-1-50-off.html" class="active">Buy 2 Get 3rd 50% Off</a></li>
+                <li><a href="woocommerce-buy-2-get-1-50-off.html">Buy 2 Get 3rd 50% Off</a></li>
                 <li><a href="woocommerce-buy-x-get-y.html">Buy X Get Y</a></li>
                 <li><a href="woocommerce-set-discount.html">Set / Bundle Discount</a></li>
                 <li><a href="woocommerce-cart-discount.html">Cart Total Discount</a></li>
@@ -183,81 +183,68 @@
     </aside>
 
     <main class="docs-content">
-        <h1>How to Set Up Buy 2 Get 3rd Item 50% Off (Buy X Get X)</h1>
+        <h1>How to Set Up Bulk Discounts (Tiered Pricing)</h1>
 
-        <p>Create compelling volume discounts where customers are rewarded for buying more of the same product. In this
-            guide, we'll set up a rule where purchasing <strong>2 items</strong> qualifies the customer to get the
-            <strong>3rd item at 50% off</strong>.
-        </p>
+        <p><strong>Bulk Discounts</strong> (or Tiered Pricing) allow you to offer cheaper prices per unit when customers
+            buy in larger quantities (e.g., "Buy 10+ items, get 10% off"). This is an excellent way to encourage larger
+            orders.</p>
 
         <h2>1. Creating a New Rule</h2>
         <ol>
             <li>Navigate to <strong>WooCommerce > Settings > Dynamic Discounts</strong>.</li>
             <li>Click <strong>Add New Rule</strong>.</li>
-            <li>Enter a <strong>Rule Name</strong> (e.g., "Buy 2 Get 3rd 50% Off").</li>
+            <li>Enter a <strong>Rule Name</strong> (e.g., "Wholesale T-Shirts").</li>
         </ol>
 
         <h2>2. Configuring the Discount</h2>
         <p>In the <strong>Discount Type</strong> section, select:</p>
         <div class="highlight">
-            <strong>Discount Type:</strong> <code>Buy X Get X (Same Product)</code>
+            <strong>Discount Type:</strong> <code>Bulk Discount</code>
         </div>
 
-        <h3>Setting Up Tiers (Ranges)</h3>
-        <p>We need to configure the rule so that for every 2 items bought (full price), the next 1 item gets 50% off.
-        </p>
+        <h3>Setting Up Tiers (Price Ranges)</h3>
+        <p>You can define multiple tiers. For each tier, specify the quantity range and the discount that applies.</p>
 
         <ol>
-            <li>Click <strong>Add Range</strong>.</li>
-            <li><strong>Min Qty</strong>: <code>2</code>
+            <li>Click <strong>Add Range</strong> to create a tier.</li>
+            <li><strong>Min Qty</strong>: The minimum quantity start (e.g., 5).</li>
+            <li><strong>Max Qty</strong>: The maximum quantity end (e.g., 10). Leave empty for "unlimited".</li>
+            <li><strong>Discount Type</strong>:
                 <ul>
-                    <li>This is the "Buy X" part. The customer buys 2 units at full price.</li>
+                    <li><strong>Percentage</strong>: e.g., 10% off per item.</li>
+                    <li><strong>Fixed Discount</strong>: e.g., $2 off per item.</li>
+                    <li><strong>Fixed Price</strong>: e.g., Set price to $15 per item.</li>
                 </ul>
             </li>
-            <li><strong>Discount Type</strong>: <code>Percentage</code>
-                <ul>
-                    <li>We want to discount the reward item, not give it for free.</li>
-                </ul>
-            </li>
-            <li><strong>Value</strong>: <code>50</code>
-                <ul>
-                    <li>This applies a 50% discount to the reward item.</li>
-                </ul>
-            </li>
-            <li><strong>Recursive (Repeat)</strong>: <code>Unchecked</code> (or <code>Checked</code>)
-                <ul>
-                    <li><strong>Unchecked</strong>: The deal applies once per order. (Buy 2, get 3rd 50% off. Buy 6,
-                        still only 1 item is 50% off).</li>
-                    <li><strong>Checked</strong>: The deal repeats. (Buy 2, get 1 at 50% off. Buy 4, get 2 at 50% off).
-                    </li>
-                </ul>
-            </li>
+            <li><strong>Value</strong>: The amount of the discount or the fixed price.</li>
         </ol>
 
-        <h2>3. Filtering Logic</h2>
-        <p>Select which products this deal applies to.</p>
+        <h2>3. Filtering Logic (Who gets the deal?)</h2>
+        <p>Use the <strong>Filter</strong> section to apply this rule to specific products.</p>
         <ul>
-            <li><strong>Filter Type</strong>: <code>Specific Products</code> (e.g., "Summer T-Shirt") or
-                <code>Product Categories</code>.
-            </li>
+            <li><strong>Filter Type</strong>: <code>Specific Products</code> or <code>Product Categories</code>.</li>
             <li><strong>Operator</strong>: <code>In List</code>.</li>
+            <li><strong>Select</strong>: Choose the specific items (e.g., "Basic T-Shirt" or "All T-Shirts").</li>
         </ul>
 
-        <h2>4. Result</h2>
+        <h2>4. Common Examples</h2>
+
+        <h3>Scenario A: Simple Tiered Pricing</h3>
         <ul>
-            <li><strong>Scenario</strong>: Customer adds <strong>3</strong> "Summer T-Shirts" to the cart.</li>
-            <li><strong>Outcome</strong>:
-                <ul>
-                    <li>2 Items = Full Price.</li>
-                    <li>1 Item = 50% Off.</li>
-                    <li>Total quantity in cart: 3.</li>
-                </ul>
-            </li>
+            <li><strong>Tier 1</strong>: Buy 5-9 items, get <strong>5%</strong> Off.</li>
+            <li><strong>Tier 2</strong>: Buy 10-19 items, get <strong>10%</strong> Off.</li>
+            <li><strong>Tier 3</strong>: Buy 20+ items, get <strong>20%</strong> Off.</li>
+        </ul>
+
+        <h3>Scenario B: Fixed Price Wholesale</h3>
+        <ul>
+            <li>Original Price: $50.</li>
+            <li><strong>Tier 1</strong>: Buy 10+ items, Price becomes <strong>$40</strong> (Fixed Price).</li>
         </ul>
 
         <div class="note">
-            <strong>Note:</strong> Check your cart totals to verify the discount logic applies correctly to the 3rd item
-            as expected.
+            <strong>Tip:</strong> YeeDiscounts has a "Quantity Table" feature (if enabled in Settings) that can display
+            these tiers on the product page to inform customers of potential savings.
         </div>
     </main>
 

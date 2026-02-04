@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy 2 Get 3rd 50% Off - YeeDiscounts Documentation</title>
+    <title>Simple Discount (Product Adjustment) - YeeDiscounts Documentation</title>
     <style>
         :root {
             --primary: #0073aa;
@@ -164,10 +164,10 @@
 
             <h3>Discount Types</h3>
             <ul>
-                <li><a href="woocommerce-simple-discount.html">Simple Discount</a></li>
+                <li><a href="woocommerce-simple-discount.html" class="active">Simple Discount</a></li>
                 <li><a href="woocommerce-bulk-discount.html">Bulk / Quantity Discount</a></li>
                 <li><a href="woocommerce-buy-x-get-x.html">Buy X Get X (BOGO)</a></li>
-                <li><a href="woocommerce-buy-2-get-1-50-off.html" class="active">Buy 2 Get 3rd 50% Off</a></li>
+                <li><a href="woocommerce-buy-2-get-1-50-off.html">Buy 2 Get 3rd 50% Off</a></li>
                 <li><a href="woocommerce-buy-x-get-y.html">Buy X Get Y</a></li>
                 <li><a href="woocommerce-set-discount.html">Set / Bundle Discount</a></li>
                 <li><a href="woocommerce-cart-discount.html">Cart Total Discount</a></li>
@@ -183,81 +183,78 @@
     </aside>
 
     <main class="docs-content">
-        <h1>How to Set Up Buy 2 Get 3rd Item 50% Off (Buy X Get X)</h1>
+        <h1>How to Set Up a Simple Discount (Product Adjustment)</h1>
 
-        <p>Create compelling volume discounts where customers are rewarded for buying more of the same product. In this
-            guide, we'll set up a rule where purchasing <strong>2 items</strong> qualifies the customer to get the
-            <strong>3rd item at 50% off</strong>.
-        </p>
+        <p>The <strong>Simple Discount</strong> (also known as Product Adjustment) is the most straightforward way to
+            run specific sales. It allows you to apply a discount directly to products, categories, or your entire
+            store.</p>
+
+        <p>Unlike other rules that might require minimum quantities, this rule changes the product price immediately for
+            1 item or more.</p>
 
         <h2>1. Creating a New Rule</h2>
         <ol>
             <li>Navigate to <strong>WooCommerce > Settings > Dynamic Discounts</strong>.</li>
             <li>Click <strong>Add New Rule</strong>.</li>
-            <li>Enter a <strong>Rule Name</strong> (e.g., "Buy 2 Get 3rd 50% Off").</li>
+            <li>Enter a <strong>Rule Name</strong> (e.g., "Summer Sale 20% Off").</li>
         </ol>
 
         <h2>2. Configuring the Discount</h2>
         <p>In the <strong>Discount Type</strong> section, select:</p>
         <div class="highlight">
-            <strong>Discount Type:</strong> <code>Buy X Get X (Same Product)</code>
+            <strong>Discount Type:</strong> <code>Product Adjustment</code>
         </div>
 
-        <h3>Setting Up Tiers (Ranges)</h3>
-        <p>We need to configure the rule so that for every 2 items bought (full price), the next 1 item gets 50% off.
-        </p>
+        <h3>Adjustment Settings</h3>
+        <p>Configure how the price changes:</p>
 
-        <ol>
-            <li>Click <strong>Add Range</strong>.</li>
-            <li><strong>Min Qty</strong>: <code>2</code>
+        <ul>
+            <li><strong>Adjustment Type</strong>:
                 <ul>
-                    <li>This is the "Buy X" part. The customer buys 2 units at full price.</li>
-                </ul>
-            </li>
-            <li><strong>Discount Type</strong>: <code>Percentage</code>
-                <ul>
-                    <li>We want to discount the reward item, not give it for free.</li>
-                </ul>
-            </li>
-            <li><strong>Value</strong>: <code>50</code>
-                <ul>
-                    <li>This applies a 50% discount to the reward item.</li>
-                </ul>
-            </li>
-            <li><strong>Recursive (Repeat)</strong>: <code>Unchecked</code> (or <code>Checked</code>)
-                <ul>
-                    <li><strong>Unchecked</strong>: The deal applies once per order. (Buy 2, get 3rd 50% off. Buy 6,
-                        still only 1 item is 50% off).</li>
-                    <li><strong>Checked</strong>: The deal repeats. (Buy 2, get 1 at 50% off. Buy 4, get 2 at 50% off).
+                    <li><strong>Percentage Discount</strong>: Reduces price by a percentage (e.g., 20% off).</li>
+                    <li><strong>Fixed Discount</strong>: Reduces price by a fixed amount (e.g., $5 off).</li>
+                    <li><strong>Fixed Price</strong>: Sets the price to a specific amount (e.g., everything is $10).
                     </li>
                 </ul>
             </li>
-        </ol>
-
-        <h2>3. Filtering Logic</h2>
-        <p>Select which products this deal applies to.</p>
-        <ul>
-            <li><strong>Filter Type</strong>: <code>Specific Products</code> (e.g., "Summer T-Shirt") or
-                <code>Product Categories</code>.
-            </li>
-            <li><strong>Operator</strong>: <code>In List</code>.</li>
+            <li><strong>Value</strong>: Enter the numeric value for the discount.</li>
         </ul>
 
-        <h2>4. Result</h2>
+        <h2>3. Filtering Logic (Who gets the deal?)</h2>
+        <p>This step is <strong>crucial</strong>. Use the <strong>Filter</strong> section to decide which products are
+            affected.</p>
+
         <ul>
-            <li><strong>Scenario</strong>: Customer adds <strong>3</strong> "Summer T-Shirts" to the cart.</li>
-            <li><strong>Outcome</strong>:
-                <ul>
-                    <li>2 Items = Full Price.</li>
-                    <li>1 Item = 50% Off.</li>
-                    <li>Total quantity in cart: 3.</li>
-                </ul>
-            </li>
+            <li><strong>All Products</strong>: Typically requires adding a filter for "Product Category" includes "All
+                Categories" (or similar broad logic handled by plugin, depending on version).</li>
+            <li><strong>Specific Category</strong>: Select <strong>Filter Type</strong>: <code>Category</code>,
+                Operator: <code>In list</code>, and choose your category (e.g., "Hoodies").</li>
+            <li><strong>Specific Products</strong>: Select <strong>Filter Type</strong>: <code>Products</code>,
+                Operator: <code>In list</code>, and search for specific items.</li>
+        </ul>
+
+        <h2>4. Common Examples</h2>
+
+        <h3>Scenario A: Storewide 20% Off Sale</h3>
+        <ul>
+            <li><strong>Discount Type</strong>: Product Adjustment</li>
+            <li><strong>Adjustment Type</strong>: Percentage Discount</li>
+            <li><strong>Value</strong>: <code>20</code></li>
+            <li><strong>Filter</strong>: Category "In list" [Select all main categories].</li>
+        </ul>
+
+        <h3>Scenario B: $10 Discount on Hoodies</h3>
+        <ul>
+            <li><strong>Discount Type</strong>: Product Adjustment</li>
+            <li><strong>Adjustment Type</strong>: Fixed Discount</li>
+            <li><strong>Value</strong>: <code>10</code></li>
+            <li><strong>Filter</strong>: <code>Category</code> -> <code>In List</code> -> <code>Hoodies</code>.</li>
+            <li><strong>Result</strong>: All hoodies are $10 cheaper. A $50 hoodie becomes $40.</li>
         </ul>
 
         <div class="note">
-            <strong>Note:</strong> Check your cart totals to verify the discount logic applies correctly to the 3rd item
-            as expected.
+            <strong>Tip:</strong> Enable <strong>Show on-sale badge</strong> in <em>Settings > Sale Badges</em> to
+            automatically display a "Sale!" badge on affected products.
         </div>
     </main>
 
