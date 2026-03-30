@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Hours & Time-Based Deals - YeeDiscounts Documentation</title>
+    <style>
+        :root {
+            --primary: #0073aa;
+            --text: #333;
+            --sidebar-bg: #f7f7f7;
+            --border: #eee;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Layout */
+        .docs-sidebar {
+            width: 280px;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            padding: 30px 20px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        .docs-content {
+            flex-grow: 1;
+            padding: 40px 60px;
+            max-width: 900px;
+        }
+
+        /* Navigation */
+        .docs-nav h3 {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            color: #777;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+            margin-top: 25px;
+        }
+
+        .docs-nav h3:first-child {
+            margin-top: 0;
+        }
+
+        .docs-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .docs-nav li {
+            margin-bottom: 5px;
+        }
+
+        .docs-nav a {
+            display: block;
+            padding: 8px 12px;
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.95em;
+            transition: background 0.2s;
+        }
+
+        .docs-nav a:hover {
+            background: #e0e0e0;
+        }
+
+        .docs-nav a.active {
+            background: var(--primary);
+            color: white;
+            font-weight: 500;
+        }
+
+        /* Typography */
+        h1 {
+            color: #23282d;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: #23282d;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        h3 {
+            color: #23282d;
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+
+        code {
+            background: #f0f0f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.9em;
+            color: #d63638;
+        }
+
+        .note {
+            background: #fffbe5;
+            border-left: 4px solid #fbc02d;
+            padding: 15px;
+            margin: 25px 0;
+        }
+
+        .highlight {
+            background: #e3f2fd;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin: 25px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .docs-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 20px;
+            }
+
+            .docs-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="docs-sidebar">
+        <div class="docs-nav">
+            <h3>Getting Started</h3>
+            <ul>
+                <li><a href="index.html">Introduction</a></li>
+                <li><a href="installation.html">Installation</a></li>
+            </ul>
+
+            <h3>Discount Types</h3>
+            <ul>
+                <li><a href="woocommerce-simple-discount.html">Simple Discount</a></li>
+                <li><a href="woocommerce-bulk-discount.html">Bulk / Quantity Discount</a></li>
+                <li><a href="woocommerce-buy-x-get-x.html">Buy X Get X (BOGO)</a></li>
+                <li><a href="woocommerce-buy-2-get-1-50-off.html">Buy 2 Get 3rd 50% Off</a></li>
+                <li><a href="woocommerce-buy-x-get-y.html">Buy X Get Y</a></li>
+                <li><a href="woocommerce-set-discount.html">Set / Bundle Discount</a></li>
+                <li><a href="woocommerce-cart-discount.html">Cart Total Discount</a></li>
+                <li><a href="woocommerce-free-shipping.html">Free Shipping</a></li>
+                <li><a href="woocommerce-happy-hours.html" class="active">Happy Hours</a></li>
+            </ul>
+
+            <h3>Settings</h3>
+            <ul>
+                <li><a href="settings-general.html">General Settings</a></li>
+                <li><a href="settings-badges.html">Sale Badges & Display</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="docs-content">
+        <h1>How to Set Up a Happy Hours Discount</h1>
+
+        <p>A <strong>Happy Hours</strong> discount allows you to automate promotional campaigns that are only active during specific times of the day and specific days of the week.</p>
+
+        <p>This is an excellent strategy to boost sales during traditionally slow periods (e.g., 2:00 PM - 5:00 PM on weekdays). With YeeDiscounts, you can rely on <strong>Advanced Conditions</strong> so you never have to manually toggle the discount on and off.</p>
+
+        <h2>1. Create a New Rule</h2>
+        <ol>
+            <li>Go to your WordPress Dashboard.</li>
+            <li>Navigate to <strong>WooCommerce > Settings > Dynamic Discounts</strong>.</li>
+            <li>Click on the <strong>Add New Rule</strong> button.</li>
+            <li>Enter a <strong>Rule Name</strong> (e.g., "Weekday Happy Hour - 20% Off").</li>
+        </ol>
+
+        <h2>2. Configure the Discount</h2>
+        <p>Set up the basic discount value that will apply during the Happy Hours:</p>
+        
+        <ul>
+            <li><strong>Discount Type</strong>: Select the type of discount you want to offer. Typically, you will use <code>Simple Discount</code> (Product Adjustment).</li>
+            <li><strong>Adjustment Type</strong>: Select <code>Percentage Discount</code> or <code>Fixed Discount</code>.</li>
+            <li><strong>Value</strong>: Set the numeric value (e.g., <code>20</code>).</li>
+        </ul>
+
+        <h2>3. Set Up the Time Conditions (The Magic)</h2>
+        <p>This is the core of the Happy Hours setup. Scroll down to the <strong>Advanced Conditions</strong> section to restrict the discount to specific hours and days.</p>
+
+        <ol>
+            <li><strong>Add Time Range Condition</strong>:
+                <ul>
+                    <li>Click <strong>Add Condition</strong>.</li>
+                    <li>Select <strong>Time range</strong> from the condition dropdown list.</li>
+                    <li>Set the Start Time and End Time (e.g., <code>14:00</code> to <code>17:00</code> for 2:00 PM to 5:00 PM).</li>
+                </ul>
+            </li>
+            <li><strong>Add Days of the Week Condition</strong>:
+                <ul>
+                    <li>Click <strong>Add Condition</strong> within the same group (this creates an <code>AND</code> logic relationship).</li>
+                    <li>Select <strong>Days of the week</strong>.</li>
+                    <li>Choose the specific days the Happy Hours should be active (e.g., <code>Monday</code>, <code>Tuesday</code>, <code>Wednesday</code>, <code>Thursday</code>, <code>Friday</code>).</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2>4. Add Frontend Notifications</h2>
+        <p>To maximize the impact of your Happy Hours, ensure customers know about it.</p>
+        
+        <ul>
+            <li>Go to the <strong>Frontend Features</strong> tab within your rule settings.</li>
+            <li>Enable the <strong>Discount Bar</strong> or <strong>Custom Sale Badge</strong>.</li>
+            <li>Enter a custom promotional message like: <em>"Happy Hour! Enjoy 20% off all drinks until 5 PM!"</em></li>
+        </ul>
+
+        <div class="note">
+            <strong>Tip:</strong> Ensure your WordPress server timezone is set correctly under <em>Settings > General</em> so that the Time Range condition fires accurately.
+        </div>
+
+    </main>
+
+</body>
+
+</html>

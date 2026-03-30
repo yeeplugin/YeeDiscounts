@@ -40,6 +40,11 @@ Quickly put specific products or categories on sale without complex rules.
 *   **Percentage**: 20% off all Hoodies.
 *   **Fixed Amount**: $5 off every T-Shirt.
 
+### 8. Happy Hours & Time-Based Deals
+Run flash sales or "Happy Hours" fully automatically using Time Ranges and Day of Week conditions.
+*   **Example**: 20% off all Drinks from 2:00 PM to 5:00 PM on Weekdays.
+*   **Automated**: Never manually toggle discounts on and off again.
+
 ## 🎨 Smart Display Features
 *   **Auto-Strikeout Prices**: Shows the discounted price (e.g., ~~$50~~ $40) on Shop and Product pages.
 *   **Sale Badges**: Customizable "Sale!" badges. Include the percentage discount (e.g., "-20%") inside the badge.
